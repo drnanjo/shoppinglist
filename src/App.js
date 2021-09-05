@@ -1,25 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Navbar from "./components/navbar"
+import LifeLine from "./pages/navbar/LifeLine"
+import MainSail from "./pages/navbar/MainSail"
+import SailBag from "./pages/navbar/SailBag"
+import Anchor from "./pages/navbar/Anchor"
+import Footer from "./pages/navbar/Footer"
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+      <Switch>
+        <Route path='/LifeLine' component={LifeLine} />
+        <Route path='/' exact component={MainSail} />
+        <Route path='/SailBag' component={SailBag} />
+        <Route path='/Anchor' component={Anchor} />     
+      </Switch>
+    </Router>
   );
 }
+
+
 
 export default App;
